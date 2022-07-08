@@ -30,72 +30,7 @@ void GenerateTextBoxUsage()
 }
 
 
-var Files = new string[]
-{
-    "Vines.psd",
-    "piano_play.psd",
-    "school art_class.psd",
-    "school english_classroom.psd",
-    "school homeroom.psd",
-    "school roof_door.psd",
-    "home bedroom.psd",
-    "school 1east_corridor.psd",
-    "school bathroom.psd",
-    "school entrance.psd",
-    "school locker.psd",
-    "school secret_locker.psd",
-    "home hall.psd",
-    "school 1floor_hall.psd",
-    "school cafeteria.psd",
-    "school forest_glade.psd",
-    "school music_class.psd",
-    "home kitchen.psd",
-    "school 1west_corridor.psd",
-    "school clubroom.psd",
-    "school ground_floor.psd",
-    "school nurse_room.psd",
-    "home_bathroom.psd",
-    "school admin_wing.psd",
-    "school computer_room.psd",
-    "school gym.psd",
-    "school roof.psd",
-};
 
- Files.Select(a =>
-{
-    var replace = MakeUpperFace( a);
-    return new
-    {
-        Name = replace,
-        File = @"C:\Users\gamin\Downloads\PSDs-20220701T174121Z-002\PSDs\_Final_Backgrounds\" + a
-    };
-}).ToList().ForEach(scene =>
-{
-    Console.WriteLine(scene.File);
-    Console.WriteLine(scene.Name);
-    var outPutPath = @"C:\forhire\timewizard\phaser-demo\src\game\scenes\";
-    var sceneName =scene.Name; //SchoolBathroom
-    var inputPsd = scene.File; //"schoolbathroom.psd";
-    
-    new ScaffoldPhaser().GenerateScene(outPutPath, sceneName, inputPsd);
-//     Console.WriteLine($@"import Preload{scene.Name} from 
-// ""@/game/scenes/{scene.Name}/Preload{scene.Name}"";
-//     import {scene.Name} from
-//  ""@/game/scenes/{scene.Name}/{scene.Name}"";");
-//     //Console.WriteLine("Preload"+ scene.Name + ","+scene.Name +",");
-});
-
-
-return;
- 
-    // Console.WriteLine(scene.File);
-    // Console.WriteLine(scene.Name);
-    // var outPutPath = @"C:\forhire\timewizard\phaser-demo\src\game\scenes\";
-    // var sceneName =scene.Name; //SchoolBathroom
-    // var inputPsd = scene.File; //"schoolbathroom.psd";
-    //
-    // new ScaffoldPhaser().GenerateScene(outPutPath, sceneName, inputPsd);
- 
 
 return;
 
@@ -123,9 +58,9 @@ switch (Mode)
             return;
         }
 
-        var outPutPath = args[1]; // @"C:\forhire\timewizard\phaser-demo\src\game\scenes\";
-        var sceneName = args[2]; //SchoolBathroom
-        var inputPsd = args[3]; //"schoolbathroom.psd";
+        var outPutPath = args[1];  ;
+        var sceneName = args[2];
+        var inputPsd = args[3];
 
         scaffoldPhaser.GenerateScene(outPutPath, sceneName, inputPsd);
         break;
@@ -137,12 +72,12 @@ switch (Mode)
             return;
         }
 
-        var outPath = args[1]; // @"C:\forhire\timewizard\phaser-demo\src\game\scenes\";
+        var outPath = args[1];
         var QName = args[2];
         scaffoldPhaser.GenerateQuest(outPath, QName);
 
 
-        //var eventList = $"{outPath}sprites\\{safeName}\\{safeName}_events.js";
+
         break;
     case "GenerateTextBox":
         if (args.Length <= 5)
